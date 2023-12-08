@@ -23,7 +23,7 @@ void Add(int item){
     }
 
     if (item >= top->data){
-        temp->ptr = top; // (*temp).ptr = top;
+        temp->ptr = top;
         top = temp;
         return;
     }
@@ -97,8 +97,9 @@ void Remove(int index){
 }
 
 int Size(){
-     if (isEmpty())
-        return 0;
+     if (isEmpty()){
+         return 0;
+     }
 
     struct list *next = top->ptr;
     int size = 1;
@@ -126,7 +127,7 @@ int main(){
     }
 
     // Größe der Liste
-    printf("\nGroesse von List: ");
+    printf("\nGröße von List: ");
     printf("%d\n", Size());
 
     // Ausgeben der Liste
