@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/A5fix.dir/aufgabe5_fix.c.o -o A5fix 

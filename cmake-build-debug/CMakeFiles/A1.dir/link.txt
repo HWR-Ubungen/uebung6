@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/A1.dir/aufgabe1.c.o -o A1 
