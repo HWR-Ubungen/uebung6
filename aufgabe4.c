@@ -5,30 +5,27 @@
 
 int main() {
     // A4: Datei einlesen zum Auslesen von Lottozahlen zu einem bestimmten Datum
-    FILE *fptr = fopen("../files/lotto.txt", "r");
-    if(fptr == NULL){
-        printf("Datei kann nicht geoeffnet werden!");
+    FILE *fptr = fopen("../Lottozahlen.txt", "r");
+    if (fptr == NULL) {
+        printf("Not able to open the file.\n");
         return 1;
     }
-
-    // Suchen des Datums
-    char s[11];
-    char lotto[100];
     char input[11];
-
-    printf("Geben Sie ein Datum fuer die Lottoziehung ein (Format: WD MMM DD): ");
+    char s[11];
+    char m[11];
+    printf("Datum eingeben: ");
     gets(input);
-
-    while(fgets(s, 11, fptr)){
-        if(strcmp(s, input) == 0) {
+    while (fgets(s, 11, fptr)) {
+        if (strcmp(s, input)==0) {
+            printf("Datum gefunden\n");
             printf("Lottozahlen vom %s: ", s);
-            fgets(lotto, 99, fptr);
-            fgets(lotto, 99, fptr);
-            printf("%s", lotto);
+            fgets(m, 99, fptr);
+            fgets(m, 99, fptr);
+            printf("%s", m);
             break;
+        } else {
         }
     }
-
     fclose(fptr);
     return 0;
 }
