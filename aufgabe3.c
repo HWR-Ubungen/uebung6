@@ -4,46 +4,28 @@
 
 int main() {
     // A3: Lottozahlen ziehen und in einer Datei speichern
-    FILE *fptr = fopen("../files/lotto.txt", "w");
-    if(fptr == NULL){
-        printf("Datei kann nicht geoeffnet werden!");
+    FILE *fptr = fopen("../Lottozahlen.txt", "w");
+    if (fptr == NULL) {
+        printf("Not able to open the file.\n");
         return 1;
     }
 
-    // Zeit erfassen
     time_t now;
-	now = time(0);
-
-    // Generierung der 6 zufälligen Zahlen plus die Superzahl
-    int a = rand() % 49 + 1;
-    int b = rand() % 49 + 1;
-    int c = rand() % 49 + 1;
-    int d = rand() % 49 + 1;
-    int e = rand() % 49 + 1;
-    int f = rand() % 49 + 1;
-    int s = rand() % 49 + 1;
-    int t = rand() % 49 + 1;
-
-    printf("%d\n", a);
-    printf("%d\n", b);
-    printf("%d\n", c);
-    printf("%d\n", d);
-    printf("%d\n", e);
-    printf("%d\n", f);
-    printf("%d\n", s);
-    printf("%d\n", t);
-
-    // Ziehung in die Datei schreiben:
+    now = time(0);
+    int numbers[10];
+   //Normale Zahlen
     fprintf(fptr, "%s", ctime(&now));
-    fprintf(fptr, "%d ", a);
-    fprintf(fptr, "%d ", b);
-    fprintf(fptr, "%d ", c);
-    fprintf(fptr, "%d ", d);
-    fprintf(fptr, "%d ", e);
-    fprintf(fptr, "%d ", f);
-    fprintf(fptr, "%d ", s);
-    fprintf(fptr, "\n");
+    for(int i = 0 ; i < 7 ; i++ ) {
+       numbers[i] = rand() % 49 +1;
+       for (int n = 0; n < 7; n++) {
+           if (numbers[i] == numbers[n]) {
+               numbers[i] = rand() % 49 +1;
+           }
+       }
+       fprintf(fptr,"%d ", numbers[i]);
+    }
 
+    fprintf(fptr, "\n");
     fclose(fptr);
 
     return 0;
